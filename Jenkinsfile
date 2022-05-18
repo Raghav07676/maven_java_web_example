@@ -7,7 +7,9 @@ pipeline {
        {
        steps{
        echo "Building the project..."
-       sh "mvn clean"
+       withMaven(maven: 'mvn') {
+            sh "mvn clean package"
+        }
        }
        } 
     
@@ -15,7 +17,9 @@ pipeline {
        {
         steps{
        echo "Testing the project..."
-       sh "mvn test"
+       withMaven(maven: 'mvn') {
+            sh "mvn clean package"
+        }
        }
        }
 
@@ -23,7 +27,9 @@ pipeline {
        {
         steps{
        echo "Compiling the project..."
-       sh "mvn compile"
+       withMaven(maven: 'mvn') {
+            sh "mvn clean package"
+        }
        }
        }
 
