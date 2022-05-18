@@ -7,7 +7,9 @@ pipeline {
        {
        steps{
        echo "Building the project..."
-       sh "mvn clean"
+       withMaven(maven: 'mvn') {
+            sh "mvn test"
+        }
        }
        } 
     
